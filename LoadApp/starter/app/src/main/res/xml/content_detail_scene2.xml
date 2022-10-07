@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@+id/name_label"
+               motion:framePosition="0"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/status_label"
+               motion:framePosition="0"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/tv_filename"
+               motion:framePosition="0"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/tv_status"
+               motion:framePosition="0"
+               android:alpha="0" />
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/name_label" />
+        <Constraint
+            motion:layout_editor_absoluteY="88dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/status_label" />
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:id="@+id/tv_filename" />
+        <Constraint
+            motion:layout_editor_absoluteY="88dp"
+            android:layout_height="wrap_content"
+            motion:layout_editor_absoluteX="379dp"
+            android:layout_width="0dp"
+            android:id="@+id/tv_status" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name_label"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="64dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_editor_absoluteX="16dp"
+            android:layout_marginStart="16dp" />
+        <Constraint
+            android:layout_marginEnd="32dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="112dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:id="@+id/tv_status"
+            motion:layout_constraintBottom_toBottomOf="@+id/status_label"
+            motion:layout_constraintTop_toTopOf="@+id/status_label"
+            motion:layout_constraintStart_toEndOf="@+id/status_label"
+            android:layout_marginStart="32dp" />
+        <Constraint
+            android:id="@+id/tv_filename"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/name_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/name_label"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            motion:layout_constraintTop_toTopOf="@+id/name_label" />
+        <Constraint
+            android:id="@+id/status_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/name_label"
+            motion:layout_constraintStart_toStartOf="@+id/name_label"
+            android:layout_marginTop="64dp" />
+    </ConstraintSet>
+    <Transition
+        motion:constraintSetStart="@+id/start"
+        motion:constraintSetEnd="@+id/end"
+        motion:autoTransition="animateToEnd" />
+</MotionScene>
